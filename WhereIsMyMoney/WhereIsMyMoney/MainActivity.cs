@@ -7,6 +7,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 
 namespace WhereIsMyMoney
 {
@@ -31,6 +32,7 @@ namespace WhereIsMyMoney
             this.am_layout = FindViewById<CoordinatorLayout>(Resource.Id.am_layout);
             this.am_rcvPersons = FindViewById<RecyclerView>(Resource.Id.am_rcvPersons);
             this.am_fabAdd = FindViewById<FloatingActionButton>(Resource.Id.am_fabAdd);
+            this.am_fabAdd.Click += (s, e) => ShowAddAPerson();
         }
 
         private void ShowSettings()
@@ -43,6 +45,11 @@ namespace WhereIsMyMoney
             string version = Resources.GetString(Resource.String.version);
             string author = Resources.GetString(Resource.String.author);
             Snackbar.Make(am_layout, string.Format("{0} - {1} - {2}", app_name, version, author), Snackbar.LengthLong).Show();
+        }
+
+        private void ShowAddAPerson()
+        {
+            StartActivity(typeof(AddActivity));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
