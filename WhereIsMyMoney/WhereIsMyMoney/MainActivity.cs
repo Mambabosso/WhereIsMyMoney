@@ -52,6 +52,11 @@ namespace WhereIsMyMoney
             StartActivity(typeof(AddActivity));
         }
 
+        private void ShowEditAPerson()
+        {
+            StartActivity(typeof(EditActivity));
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);

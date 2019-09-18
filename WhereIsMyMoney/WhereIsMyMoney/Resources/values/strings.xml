@@ -18,4 +18,8 @@
   <string name="importContact">Import contact</string>
   <string name="save">Save</string>
 
+  <string name="editAPerson">Edit a person</string>
+  <string name="delete">Delete</string>
+  <string name="update">Update</string>
+
 </resources>
