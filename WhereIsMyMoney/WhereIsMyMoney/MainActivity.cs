@@ -16,7 +16,7 @@ namespace WhereIsMyMoney
     {
 
         private CoordinatorLayout am_layout;
-        private RecyclerView am_rcvPersons;
+        private RecyclerView am_rcvPeople;
         private FloatingActionButton am_fabAdd;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,7 +30,10 @@ namespace WhereIsMyMoney
         private void SetViews()
         {
             this.am_layout = FindViewById<CoordinatorLayout>(Resource.Id.am_layout);
-            this.am_rcvPersons = FindViewById<RecyclerView>(Resource.Id.am_rcvPersons);
+            this.am_rcvPeople = FindViewById<RecyclerView>(Resource.Id.am_rcvPeople);
+            this.am_rcvPeople.HasFixedSize = true;
+            this.am_rcvPeople.SetLayoutManager(new LinearLayoutManager(this));
+            this.am_rcvPeople.SetAdapter(null /* TODO */);
             this.am_fabAdd = FindViewById<FloatingActionButton>(Resource.Id.am_fabAdd);
             this.am_fabAdd.Click += (s, e) => ShowAddAPerson();
         }
