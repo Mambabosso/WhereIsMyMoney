@@ -9,14 +9,16 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
+using WhereIsMyMoney.PeopleList;
+
 namespace WhereIsMyMoney
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-
         private CoordinatorLayout am_layout;
         private RecyclerView am_rcvPeople;
+        private PLAdapter am_rcvPeople_adapter;
         private FloatingActionButton am_fabAdd;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -33,7 +35,8 @@ namespace WhereIsMyMoney
             this.am_rcvPeople = FindViewById<RecyclerView>(Resource.Id.am_rcvPeople);
             this.am_rcvPeople.HasFixedSize = true;
             this.am_rcvPeople.SetLayoutManager(new LinearLayoutManager(this));
-            this.am_rcvPeople.SetAdapter(null /* TODO */);
+            this.am_rcvPeople_adapter = new PLAdapter(null /* TODO */);
+            this.am_rcvPeople.SetAdapter(this.am_rcvPeople_adapter);
             this.am_fabAdd = FindViewById<FloatingActionButton>(Resource.Id.am_fabAdd);
             this.am_fabAdd.Click += (s, e) => ShowAddAPerson();
         }

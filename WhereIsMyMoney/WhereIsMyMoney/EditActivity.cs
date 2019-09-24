@@ -14,7 +14,6 @@ namespace WhereIsMyMoney
     [Activity(Label = "@string/editAPerson", Theme = "@style/AppTheme")]
     public class EditActivity : AppCompatActivity
     {
-
         private LinearLayout ae_layout;
         private EditText ae_txtDisplayName;
         private EditText ae_txtFirstName;
