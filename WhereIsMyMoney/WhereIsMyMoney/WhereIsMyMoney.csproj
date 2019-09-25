@@ -135,7 +135,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\rcv_item_person.xml">
+    <AndroidResource Include="Resources\layout\rcv_item_wimmperson.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
