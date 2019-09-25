@@ -9,6 +9,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
+using WhereIsMyMoney.Data;
 using WhereIsMyMoney.PeopleList;
 
 namespace WhereIsMyMoney
@@ -35,7 +36,7 @@ namespace WhereIsMyMoney
             this.am_rcvPeople = FindViewById<RecyclerView>(Resource.Id.am_rcvPeople);
             this.am_rcvPeople.HasFixedSize = true;
             this.am_rcvPeople.SetLayoutManager(new LinearLayoutManager(this));
-            this.am_rcvPeople_adapter = new PLAdapter(null /* TODO */);
+            this.am_rcvPeople_adapter = new PLAdapter(Control.GetPeople());
             this.am_rcvPeople.SetAdapter(this.am_rcvPeople_adapter);
             this.am_fabAdd = FindViewById<FloatingActionButton>(Resource.Id.am_fabAdd);
             this.am_fabAdd.Click += (s, e) => ShowAddAPerson();

@@ -4,8 +4,6 @@
   <string name="version">1.0.0</string>
   <string name="author">Luis Weich</string>
 
-  <string name="dataPath">persons.dt</string>
-
   <string name="settings">Settings</string>
   <string name="about">About</string>
 
