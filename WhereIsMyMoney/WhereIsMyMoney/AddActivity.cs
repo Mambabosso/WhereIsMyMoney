@@ -28,6 +28,7 @@ namespace WhereIsMyMoney
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_add);
             SetViews();
+            SetEvents();
         }
 
         private void SetViews()
@@ -40,6 +41,22 @@ namespace WhereIsMyMoney
             this.aa_txtPhone = FindViewById<EditText>(Resource.Id.aa_txtPhone);
             this.aa_btnImportContact = FindViewById<Button>(Resource.Id.aa_btnImportContact);
             this.aa_btnSave = FindViewById<Button>(Resource.Id.aa_btnSave);
+        }
+
+        private void SetEvents()
+        {
+            aa_btnImportContact.Click += ImportContact;
+            aa_btnSave.Click += Save;
+        }
+
+        private void ImportContact(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

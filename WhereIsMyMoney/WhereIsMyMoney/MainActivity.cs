@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -28,6 +29,7 @@ namespace WhereIsMyMoney
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             SetViews();
+            SetEvents();
         }
 
         private void SetViews()
@@ -39,11 +41,18 @@ namespace WhereIsMyMoney
             this.am_rcvPeople_adapter = new PLAdapter(Control.GetPeople());
             this.am_rcvPeople.SetAdapter(this.am_rcvPeople_adapter);
             this.am_fabAdd = FindViewById<FloatingActionButton>(Resource.Id.am_fabAdd);
-            this.am_fabAdd.Click += (s, e) => ShowAddAPerson();
+        }
+
+        private void SetEvents()
+        {
+            this.am_fabAdd.Click += ShowAddAPerson;
+            this.am_rcvPeople_adapter.ItemClick += ShowDebtManageAPerson;
+            this.am_rcvPeople_adapter.ItemLongClick += ShowEditAPerson;
         }
 
         private void ShowSettings()
         {
+            throw new NotImplementedException();
         }
 
         private void ShowAbout()
@@ -54,14 +63,22 @@ namespace WhereIsMyMoney
             Snackbar.Make(am_layout, string.Format("{0} - {1} - {2}", app_name, version, author), Snackbar.LengthLong).Show();
         }
 
-        private void ShowAddAPerson()
+        private void ShowAddAPerson(object sender, EventArgs e)
         {
-            StartActivity(typeof(AddActivity));
+            Intent intent = new Intent(this, typeof(AddActivity));
+            StartActivity(intent);
         }
 
-        private void ShowEditAPerson()
+        private void ShowDebtManageAPerson(object sender, int position)
         {
-            StartActivity(typeof(EditActivity));
+            throw new NotImplementedException();
+        }
+
+        private void ShowEditAPerson(object sender, int position)
+        {
+            Intent intent = new Intent(this, typeof(EditActivity));
+            intent.PutExtra("personIndex", position);
+            StartActivity(intent);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
