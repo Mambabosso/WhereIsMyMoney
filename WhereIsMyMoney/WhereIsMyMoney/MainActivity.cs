@@ -32,6 +32,12 @@ namespace WhereIsMyMoney
             SetEvents();
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+            am_rcvPeople_adapter?.NotifyDataSetChanged();
+        }
+
         private void SetViews()
         {
             this.am_layout = FindViewById<CoordinatorLayout>(Resource.Id.am_layout);
