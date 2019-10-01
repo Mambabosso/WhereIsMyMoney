@@ -68,7 +68,7 @@
     <Compile Include="EditActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Data\Control.cs" />
-    <Compile Include="Data\WIMMPerson.cs" />
+    <Compile Include="Data\Person.cs" />
     <Compile Include="PeopleList\PLAdapter.cs" />
     <Compile Include="PeopleList\PLViewHolder.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -135,7 +135,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\rcv_item_wimmperson.xml">
+    <AndroidResource Include="Resources\layout\rcv_item_person.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
