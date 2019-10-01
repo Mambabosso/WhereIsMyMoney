@@ -16,9 +16,9 @@ namespace WhereIsMyMoney.PeopleList
 
         public override int ItemCount => people.Count;
 
-        private List<WIMMPerson> people;
+        private List<Person> people;
 
-        public PLAdapter(List<WIMMPerson> people)
+        public PLAdapter(List<Person> people)
         {
             this.people = people;
         }
