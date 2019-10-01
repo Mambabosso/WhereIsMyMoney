@@ -32,7 +32,7 @@ namespace WhereIsMyMoney.PeopleList
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.rcv_item_wimmperson, parent, false);
+            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.rcv_item_person, parent, false);
             return new PLViewHolder(itemView, OnItemClick, OnItemLongClick);
         }
 
