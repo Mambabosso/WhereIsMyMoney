@@ -5,9 +5,15 @@ namespace WhereIsMyMoney.Data
 {
     public static class Control
     {
-        public static List<WIMMPerson> GetPeople()
+        private static List<Person> people;
+
+        public static List<Person> GetPeople()
         {
-            return null;
+            if (people == null)
+            {
+                people = new List<Person>();
+            }
+            return people;
         }
     }
 }
