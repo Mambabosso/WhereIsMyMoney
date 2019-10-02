@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -25,6 +26,7 @@ namespace WhereIsMyMoney
         private Button ae_btnDelete;
         private Button ae_btnUpdate;
 
+        private int personIndex;
         private Data.Person person;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -56,7 +58,8 @@ namespace WhereIsMyMoney
 
         private void SetPersonDetails()
         {
-            person = Control.GetPeople()[Intent.GetIntExtra("personIndex", -1)];
+            personIndex = Intent.GetIntExtra("personIndex", -1);
+            person = Control.GetPeople()[personIndex];
             ae_txtDisplayName.Text = person.DisplayName;
             ae_txtFirstName.Text = person.FirstName;
             ae_txtLastName.Text = person.LastName;
@@ -66,12 +69,29 @@ namespace WhereIsMyMoney
 
         private void Delete(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Control.GetPeople().RemoveAt(personIndex);
+
+            ShowMainActivity();
         }
 
         private void Update(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string displayName = ae_txtDisplayName.Text;
+            string firstName = ae_txtFirstName.Text;
+            string lastName = ae_txtLastName.Text;
+            string email = ae_txtEmail.Text;
+            string phone = ae_txtPhone.Text;
+
+            Control.GetPeople().RemoveAt(personIndex);
+            Control.GetPeople().Insert(personIndex, new Data.Person(displayName, firstName, lastName, email, phone));
+
+            ShowMainActivity();
+        }
+
+        private void ShowMainActivity()
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -8,6 +9,8 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+
+using WhereIsMyMoney.Data;
 
 namespace WhereIsMyMoney
 {
@@ -56,7 +59,21 @@ namespace WhereIsMyMoney
 
         private void Save(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string displayName = aa_txtDisplayName.Text;
+            string firstName = aa_txtFirstName.Text;
+            string lastName = aa_txtLastName.Text;
+            string email = aa_txtEmail.Text;
+            string phone = aa_txtPhone.Text;
+
+            Control.GetPeople().Add(new Data.Person(displayName, firstName, lastName, email, phone));
+
+            ShowMainActivity();
+        }
+
+        private void ShowMainActivity()
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
